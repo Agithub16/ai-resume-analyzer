@@ -15,10 +15,10 @@ export default function Navbar() {
       }}
     >
       <div className="font-bold text-xl" style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.2' }}>
-        <span className="text-xs font-bold">RESUME</span>
+        <span className=" text-xs font-bold">RESUME</span>
         <span className="text-2xl" style={{ color: '#a855f7' }}>VISION</span>
       </div>
-      <button className="glass login-button">Log In</button>
+      <button className=" glass login-button">Sign in</button>
     </div>
   )
 }

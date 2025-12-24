@@ -1,4 +1,15 @@
 @import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@theme {
+  --font-Dm Sans:'Dm Sans', 'sans-serif'
+}
+
+html{
+  overflow-x:hidden;
+  width: 100%;
+}
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -30,10 +41,13 @@ body {
   background: radial-gradient(circle at top left, #6f2cf4, #0b0b0f 40%);
   color: white;
   display: block;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 #root {
   width: 100%;
+  overflow-x: hidden;
 }
 
 .glass {
@@ -115,3 +129,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
