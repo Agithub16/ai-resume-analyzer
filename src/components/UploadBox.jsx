@@ -5,6 +5,7 @@ export default function UploadBox() {
   const [selectedFile, setSelectedFile] = useState(null)
   const [error, setError] = useState('')
   const fileInputRef = useRef(null)
+  const [isDragging, setIsDragging] = useState(false)
 
   const handleFileSelect = (file) => {
     setError('')
@@ -26,10 +27,39 @@ export default function UploadBox() {
 
     setSelectedFile(file)
   }
-  
+  //for drag and drop
+  const handleDragOver = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setIsDragging(true)
+  }
+  const handleDragLeave = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setIsDragging(false)
+  }
+  const handleDrop = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    setIsDragging(false)
+
+    const files = e.dataTransfer.files
+    if (files && files[0]) {
+      handleFileSelect(files[0])
+    }
+  }
+
   return (
     <div 
-    className="outline outline-2 outline-white/40 [outline-style:dashed] glass w-full max-w-md mx-auto my-10 p-4 md:p-5 border-2 border-dashed border-gray-600 rounded-xl text-center">
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+      className={`outline outline-2 outline-white/40 [outline-style:dashed] glass w-full max-w-md mx-auto my-10 p-4 md:p-5 border-2 border-dashed rounded-xl text-center transition-all ${
+        isDragging 
+          ? 'border-purple-400 bg-purple-500/20 scale-105' 
+          : 'border-gray-600'
+      }`}
+    >
       <p className="text-gray-300 mb-2">Drop your resume here or choose a file. PDF & DOCX only. Max 2MB file size.</p>
       <p className="text-gray-500 text-sm">PDF & DOCX only · Max 2MB</p>
 
