@@ -63,6 +63,15 @@ body {
   background:
     linear-gradient(#1a1a1a, #1a1a1a) padding-box,
     linear-gradient(90deg, #6366f1, #a855f7) border-box;
+
+    padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: border-color 0.25s;
 }
 
 .ai-powered-badge {

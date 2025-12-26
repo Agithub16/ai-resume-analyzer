@@ -1,4 +1,6 @@
 // components/Navbar.jsx
+import { Link } from 'react-router-dom';
+
 export default function Navbar() {
   return (
     <div
@@ -18,7 +20,7 @@ export default function Navbar() {
         <span className=" text-xs font-bold">RESUME</span>
         <span className="text-2xl" style={{ color: '#a855f7' }}>VISION</span>
       </div>
-      <button className=" glass login-button">Sign in</button>
+      <Link to="/signin" className="glass login-button" style={{display: 'inline-block'}}>Sign in</Link>
     </div>
   )
 }
