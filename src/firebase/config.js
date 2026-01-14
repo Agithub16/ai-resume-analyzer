@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";           // Authentication ke liye
-import { getFirestore } from "firebase/firestore"; // Database ke liye
-import { getStorage } from "firebase/storage";     // Resume files ke liye
+import { getAuth } from "firebase/auth";           
+import { getFirestore } from "firebase/firestore"; 
+import { getStorage } from "firebase/storage";    
 import { getAnalytics } from "firebase/analytics";    
 
 const firebaseConfig = {
@@ -17,3 +17,10 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+// Export Firebase services
+export { auth, db, storage, analytics };
+export default app;
