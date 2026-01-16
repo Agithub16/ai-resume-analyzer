@@ -69,9 +69,9 @@ app.post('/analyze', upload.single('resume'), async (req, res) => {
   }
 });
 
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
+const PORT = process.env.PORT || 10000; // Render usually 10000 use karta hai
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Server running on port ${PORT}`);
 });
 
 
