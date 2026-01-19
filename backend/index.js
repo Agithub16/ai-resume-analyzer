@@ -47,7 +47,7 @@ app.post('/analyze', upload.single('resume'), async (req, res) => {
       3. 3 Practical Suggestions
     `;
 
-    // 3. Groq API Call (Llama 3 model ka use)
+  
     const chatCompletion = await groq.chat.completions.create({
       messages: [
         {
@@ -55,7 +55,7 @@ app.post('/analyze', upload.single('resume'), async (req, res) => {
           content: prompt,
         },
       ],
-      model: "llama-3.3-70b-versatile", // Ye bahut powerful aur free model hai
+      model: "llama-3.3-70b-versatile", 
     });
 
     const resultText = chatCompletion.choices[0]?.message?.content || "AI response empty hai.";
