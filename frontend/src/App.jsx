@@ -1,4 +1,5 @@
 // App.jsx
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home'
@@ -6,6 +7,10 @@ import Dashboard from './pages/Dashboard'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/Signup'
 export default function App() {
+
+   useEffect(() => {
+    document.documentElement.classList.add("dark");
+  }, []);
 
   return (
   <Router>

@@ -59,21 +59,24 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen bg-[#0a0a0c] text-white p-6 pt-28">
       <div className="max-w-6xl mx-auto">
-        
         {/* Header */}
         <div className="flex justify-between items-center mb-10">
-          <button onClick={() => navigate('/')} className="flex items-center gap-2 text-gray-400 hover:text-white transition-all">
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center gap-2 text-gray-400 hover:text-white transition-all"
+          >
             <FiArrowLeft /> Back to Home
           </button>
           <div className="text-right">
-            <h1 className="text-2xl font-bold bg-linear-to-r from-purple-500 to-indigo-400 bg-clip-text text-transparent">RESUME VISION</h1>
+            <h1 className="text-2xl font-bold bg-linear-to-r from-purple-500 to-indigo-400 bg-clip-text text-transparent">
+              RESUME VISION
+            </h1>
           </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
           {/* Section 1: Resume Preview */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="glass p-6 rounded-3xl border border-white/10"
@@ -89,7 +92,7 @@ export default function Dashboard() {
           </motion.div>
 
           {/* Section 2: Job Description Input */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             className="glass p-6 rounded-3xl border border-white/10 flex flex-col"
@@ -97,7 +100,7 @@ export default function Dashboard() {
             <h2 className="text-sm font-bold text-purple-400 uppercase tracking-widest mb-4 flex items-center gap-2">
               <FiMessageSquare /> Target Job Description
             </h2>
-            <textarea 
+            <textarea
               value={jd}
               onChange={(e) => setJd(e.target.value)}
               placeholder="Paste the Job Description here..."
@@ -108,23 +111,31 @@ export default function Dashboard() {
 
         {/* Action Button */}
         <div className="mt-12 text-center">
-          <button 
+          <button
             onClick={handleAnalysis}
-            
             disabled={loading || !jd}
-            className="px-12 py-4 bg-white text-black font-bold rounded-full hover:scale-105 active:scale-95 transition-all disabled:opacity-30 flex items-center gap-3 mx-auto shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+            className="px-12 py-4 font-bold rounded-full transition-all flex items-center gap-3 mx-auto 
+             bg-white text-black hover:scale-105 active:scale-95 
+             dark:bg-zinc-800 dark:text-white dark:border dark:border-zinc-600
+             disabled:cursor-not-allowed
+             shadow-lg dark:shadow-[0_0_25px_rgba(255,255,255,0.2)]"
           >
             {loading ? (
-              <><div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div> Analyzing...</>
+              <>
+                <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin"></div>
+                Analyzing...
+              </>
             ) : (
-              <><FiCpu /> Run AI Analysis</>
+              <>
+                <FiCpu /> Run AI Analysis
+              </>
             )}
           </button>
         </div>
 
         {/* --- Results Section (Sirf tab dikhega jab result aayega) --- */}
         {result && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             className="mt-16 p-8 glass rounded-3xl border border-green-500/30 bg-green-500/5"
@@ -137,7 +148,6 @@ export default function Dashboard() {
             </div>
           </motion.div>
         )}
-
       </div>
     </div>
   );
