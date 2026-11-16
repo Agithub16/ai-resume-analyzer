@@ -55,7 +55,7 @@ app.post('/analyze', upload.single('resume'), async (req, res) => {
           content: prompt,
         },
       ],
-      model: "llama-3.3-70b-versatile", 
+      model: "openai/gpt-oss-120b", 
     });
 
     const resultText = chatCompletion.choices[0]?.message?.content || "AI response empty hai.";
